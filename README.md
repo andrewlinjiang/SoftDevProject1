@@ -14,4 +14,9 @@ SoftDevProject1: Deployed Greedy Toads Website
 
 #### Launch Codes:
 Navigate to this link: http://167.99.148.165/
-
+or
+1. `git clone https://github.com/andrewlinjiang/SoftDevProject1.git`
+2. `cd SoftDevProject1`
+3. `pip install -r requirements.txt`
+4. `cd FlaskApp/FlaskApp`
+5. `python3 __init__.py`
