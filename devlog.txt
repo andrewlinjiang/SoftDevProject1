@@ -6,55 +6,54 @@ Separate devlog entries with a newline.
 Most recent entry at the bottom.
 Each entry should begin with the following format: firstL -- TIMESTAMP\n ( e.g.: topherM -- 1999-12-31 23:59 )
 
-HelenaW -- 2020-12-17 17:07
-I've drawn and pushed the Greedy Toads flag! Believe it or not, my drawing tablet skills are improving... anyway, it's time for me to go work on the project design. :)
+AndrewJ -- 2021-01-19 9:30
+- Installed Apache on Droplet. Able to run .html files, but not flask apps (jinja exception). 
 
-aribC -- 2020-12-17 19:57
-I made a branch 'create-page' which has the code for adding data from a form for creating a page to a table, 'data_subtopics' in a database, 'subtopics.db'. The function used for this is
-called create-page() which involves functions from 'create.py', add_page_data() and _is_valid()	(the latter checking if the entry name already exists in the db). Currently just waiting
-on design doc to be approved before merging pull request for branch.
+BenjaminG -- 2021-01-20 21:07
+- Can now ssh into Andrew's Droplet.
 
-anyaZ -- 2020-12-21 8:30
-I added design.pdf
+WilliamY + MatthewH -- 2021-01-21 9:38
+- Can also now ssh into Andrew's Droplet.
 
-aribC -- 2020-12-22 11:20
-I made a branch 'add-create-renderpage' which has the code for create_story function which creates table in db based on form input from create.html, story_add which passes values from add.html form to story_add_helper, story_add_helper which adds a story_contrib to a table in the database and updates user_table with the fact that a user has worked on something new, and render_story which renders create.html, add.html, or renders story.html with the necessary values based on boolean inputs from the html.
-Not ready to be pushed into main until further testing of everything.
+AndrewJ -- 2021-01-25 7:10
+- gave 777 perms to FlaskApp folder, still get Internal Service Error: jinja2.exceptions.TemplateNotFound: login.html
+- Nuked everything
+- Successfully deployed a small flask app (15-flask-sess) (app can access templates)
+- Attempted P0: 
+	- ModuleNotFoundError: No module named 'utils'
+		- Solved by changing sys.path.append("/var/www/FlaskApp/FlaskApp/")
+	- ModuleNotFoundError: No module named 'FlaskApp'
 
-anyaZ -- 2020-12-26 11:10
--updated design.pdf (removed user_id from user table schema)
--added design_wiki.pdf
--created branch 'authentication' which has the login function, the signup/ create new user, and logout,
--branch also has the helper function 'getActiveUser()' which returns the username that is currently active
--login.html needs to have a jinja place over the inputs that is called "err" for an error message, same for signup.html
+2FC -- 2021-01-27 15:00
+- caught everyone up on wsgi, conf files
+- Attempted P0:
+	- ModuleNotFoundError: No module named 'utils'
+		- Solved by removing utils.py and moving all relevant functions to __init__.py
+	- jinja2.exceptions.TemplateNotFound: login.html
+		- tried changing to absolute path
+		- tried remaking the templates folder
+		- tried putting login.html onto the same directory
+		- stuck on this error, google-fu yielded no results, asked RC for help
+		- NOTE: the simple flask app was able to access templates folder, which means.... ???
+- concluded meeting
 
-helenaW -- 2020-12-30 12:18
-I'm assembling the basic html for our website! We ultimately decided to scrap the whole "story page serving 3 different functions" idea because 0. lazy, and 1. it doesn't cost anything to make a few more html files, amirite? Right now, it's all pretty ugly, but our website has a bunch of forms for people to put things in and publish stuff. There's ways to get from page to page, and it's all looking pretty promising! However, it's also currently DECEASED because it hasn't been wired up with the backend. Still, I'll be on call for the backend work over the break, and I do hope to make this website a LITTLE more tolerable... probably with marquees.
+2FC -- 2021-01-28 10:00
+- restored working flaskapp (15-flask-sess)
+- tried adding in "faulty" code and template to working flaskapp
+- flaskapp serves up template in question
+- bruh face, we do not know why it works or why our solution does anything
+- it defies all laws of logic
+- oh well
 
-benjaminG -- 2021-1-3 19:37
-Added initial version of render_home() to app.py. 
+2FC -- 2021-01-29 15:00
+- added login functionality
+- werkzeug.routing.BuildError: Could not build url for endpoint 'display_user_entries' with values ['user_id']
+    - fixed by adding direct href links
 
-anyaZ -- 2021-1-6 9:17
-Design Doc Updates/ Issues Resolved
--We have replaced the storypage system with a much simpler system of 3 pages: storyCreate, storyAdd, and storyView.
--MVP finished 2021-1-6, all parts are finished (in seperate branches), just need to combine them 
 
-aribC -- 2021-1-7 13:22
-Refactored code other than render_home() which is incomplete
-Added encrypt_id() and decrypt_id() with encryption causing multi phrase or story_ids with commas to not break everything
-- encrypt_id() should be used on story_titles when trying to read from db
-- decrypt_id() should be used after you've either grabbed table names from db or if outputting to an html file
-Revealed bug with explore.html where it will only generate the first word of each story_id rather than the full story_id
 
-aribC -- 2021-1-7 18:32
-Merged refactor branch into Main
-Completed render_home()
-Code fully refactored
-db_builder.py removed and added to __init__.py
-Minimal working product for code for requirements achieved
 
-helenaW -- 2021-1-8 1:00
-OH MY LORD this has been a ride!
-Did a whole bunch of fancy frontend just because we achieved MVP.
-Our website is now the most horrible thing you've ever seen...
-Sorry! ;D
+
+
+
+

@@ -1,9 +1,17 @@
 from flask import Flask, render_template, request, session, Markup
 import sqlite3, os
-
+#Make users table
+db = sqlite3.connect("/var/www/FlaskApp/FlaskApp/story.db") #open db if file exists, otherwise create db
+c = db.cursor()
+try:
+  c.execute("CREATE TABLE users(username TEXT, password TEXT, story_ids TEXT)")
+except:
+  pass
+db.commit()
+db.close()
 app = Flask(__name__)    #create Flask object
 
-db = sqlite3.connect("story.db", check_same_thread=False) #open db if file exists, otherwise create db
+db = sqlite3.connect("/var/www/FlaskApp/FlaskApp/story.db", check_same_thread=False) #open db if file exists, otherwise create db
 c = db.cursor()
 
 app.secret_key= os.urandom(32) #Generates a random 32-byte key for the session

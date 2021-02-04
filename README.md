@@ -1,14 +1,17 @@
-# Storytelling by Greedy Toads
+## twoFacedCubes
+SoftDevProject1: Deployed Greedy Toads Website 
 
-## Roster
-* Anya Zorin: Project Manager
-* Arib Chowdhury: Databases
-* Benjamin Gallai: app.py
-* Helena Williams: HTML templates
-## Description
- A storytelling website in which users can contribute to stories.  Once at the home page after either logging in or signing up, the user can view stories they have already contributed to. To view stories they can add a new contribution to, they navigate to explore. Once they select a story to add to, the latest contribution to the story will be shown and a text input. They can also create new stories from scratch and log out. 
-## Launch codes
-* Clone the repository GreedyToads: `git clone https://github.com/anyazorin/GreedyToads.git` 
-* Go to the repository: `cd GreedyToads`
-* Install the required modules: `pip install -r requirements.txt`
-* Run: `python app/__init__.py`
+#### Roster:
+  * Project Manager: Andrew Jiang (ajiang10)
+     * Maintain Digital Ocean availability and accessibility
+  * Benjamin Gallai (bgallai10)
+     * responsible for ensuring all templates work
+  * Matthew Hui (mhui10)
+     * responsible for maintaining wsgi and conf file
+  * William Yin (wyin10)
+    * responsible for maintaining __init__.py
+#### Product Description:
+
+#### Launch Codes:
+Navigate to this link: http://167.99.148.165/
+
