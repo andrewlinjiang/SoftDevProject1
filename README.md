@@ -10,8 +10,7 @@ SoftDevProject1: Deployed Greedy Toads Website
      * responsible for maintaining wsgi and conf file
   * William Yin (wyin10)
     * responsible for maintaining __init__.py
-#### Product Description:
-
+    
 #### Launch Codes:
 Navigate to this link: http://167.99.148.165/
 or
